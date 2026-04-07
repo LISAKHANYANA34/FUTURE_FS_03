@@ -1,0 +1,599 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+  <title>Iron Forge Gym | Elevate Your Strength</title>
+  <!-- Google Fonts & simple CSS reset -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,600;14..32,700;14..32,800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background-color: #0a0a0a;
+      color: #f0f0f0;
+      scroll-behavior: smooth;
+    }
+
+    /* container utility */
+    .container {
+      max-width: 1280px;
+      margin: 0 auto;
+      padding: 0 2rem;
+    }
+
+    /* buttons & typography */
+    .btn-primary {
+      display: inline-block;
+      background: #e53e3e;
+      color: white;
+      font-weight: 700;
+      padding: 0.9rem 2rem;
+      border-radius: 40px;
+      text-decoration: none;
+      transition: 0.3s ease;
+      border: none;
+      cursor: pointer;
+      font-size: 1rem;
+      letter-spacing: 0.5px;
+      box-shadow: 0 6px 14px rgba(229, 62, 62, 0.25);
+    }
+
+    .btn-primary:hover {
+      background: #c53030;
+      transform: translateY(-3px);
+      box-shadow: 0 10px 20px rgba(229, 62, 62, 0.4);
+    }
+
+    .btn-outline {
+      background: transparent;
+      border: 2px solid #e53e3e;
+      color: #e53e3e;
+      padding: 0.7rem 1.5rem;
+      border-radius: 40px;
+      font-weight: 600;
+      text-decoration: none;
+      transition: 0.2s;
+      display: inline-block;
+    }
+
+    .btn-outline:hover {
+      background: #e53e3e;
+      color: white;
+    }
+
+    /* header & nav */
+    header {
+      background: #000000cc;
+      backdrop-filter: blur(12px);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      border-bottom: 1px solid #222;
+    }
+
+    .navbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1rem 0;
+      flex-wrap: wrap;
+    }
+
+    .logo h2 {
+      font-size: 1.8rem;
+      font-weight: 800;
+      letter-spacing: -0.5px;
+    }
+    .logo span {
+      color: #e53e3e;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 2rem;
+      list-style: none;
+    }
+    .nav-links a {
+      color: #f0f0f0;
+      text-decoration: none;
+      font-weight: 500;
+      transition: 0.2s;
+    }
+    .nav-links a:hover {
+      color: #e53e3e;
+    }
+
+    /* Hero */
+    .hero {
+      background: linear-gradient(135deg, #000000e6, #0a0a0ae6), url('https://images.pexels.com/photos/841130/pexels-photo-841130.jpeg?auto=compress&cs=tinysrgb&w=1600');
+      background-size: cover;
+      background-position: center 30%;
+      min-height: 85vh;
+      display: flex;
+      align-items: center;
+      text-align: center;
+    }
+    .hero-content {
+      max-width: 800px;
+      margin: 0 auto;
+    }
+    .hero h1 {
+      font-size: 3.8rem;
+      font-weight: 800;
+      line-height: 1.2;
+      margin-bottom: 1.2rem;
+    }
+    .hero p {
+      font-size: 1.2rem;
+      margin-bottom: 2rem;
+      color: #ddd;
+    }
+
+    /* sections */
+    section {
+      padding: 5rem 0;
+    }
+    .section-title {
+      text-align: center;
+      font-size: 2.5rem;
+      font-weight: 700;
+      margin-bottom: 3rem;
+    }
+    .section-title span {
+      color: #e53e3e;
+    }
+
+    /* features grid */
+    .features-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 2rem;
+    }
+    .feature-card {
+      background: #111;
+      padding: 2rem 1.5rem;
+      border-radius: 24px;
+      text-align: center;
+      transition: 0.25s;
+      border: 1px solid #222;
+    }
+    .feature-card i {
+      font-size: 2.8rem;
+      color: #e53e3e;
+      margin-bottom: 1rem;
+    }
+    .feature-card h3 {
+      font-size: 1.5rem;
+      margin-bottom: 0.8rem;
+    }
+    .feature-card p {
+      color: #aaa;
+    }
+
+    /* class schedule / classes */
+    .classes-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 2rem;
+    }
+    .class-item {
+      background: #111;
+      border-radius: 28px;
+      overflow: hidden;
+      border: 1px solid #2a2a2a;
+      transition: transform 0.2s;
+    }
+    .class-item:hover {
+      transform: translateY(-6px);
+    }
+    .class-img {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+    }
+    .class-info {
+      padding: 1.5rem;
+    }
+    .class-info h3 {
+      font-size: 1.6rem;
+      margin-bottom: 0.5rem;
+    }
+    .class-info p {
+      color: #bbb;
+      margin: 0.5rem 0;
+    }
+    .time {
+      font-weight: 700;
+      color: #e53e3e;
+    }
+
+    /* pricing */
+    .pricing-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 2rem;
+    }
+    .pricing-card {
+      background: #111;
+      border-radius: 28px;
+      padding: 2rem;
+      text-align: center;
+      border: 1px solid #2c2c2c;
+    }
+    .pricing-card.popular {
+      border: 2px solid #e53e3e;
+      position: relative;
+    }
+    .popular-badge {
+      background: #e53e3e;
+      display: inline-block;
+      padding: 0.3rem 1rem;
+      border-radius: 30px;
+      font-size: 0.8rem;
+      font-weight: bold;
+      margin-bottom: 1rem;
+    }
+    .price {
+      font-size: 2.5rem;
+      font-weight: 800;
+      margin: 1rem 0;
+    }
+    .price span {
+      font-size: 1rem;
+      font-weight: 400;
+    }
+    .pricing-card ul {
+      list-style: none;
+      margin: 1.5rem 0;
+    }
+    .pricing-card li {
+      margin: 0.8rem 0;
+      color: #ccc;
+    }
+
+    /* trainer */
+    .trainer-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 2rem;
+    }
+    .trainer-card {
+      background: #111;
+      border-radius: 24px;
+      padding: 1.5rem;
+      text-align: center;
+    }
+    .trainer-card img {
+      width: 140px;
+      height: 140px;
+      border-radius: 50%;
+      object-fit: cover;
+      margin-bottom: 1rem;
+      border: 3px solid #e53e3e;
+    }
+    /* contact */
+    .contact-flex {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 3rem;
+      background: #111;
+      border-radius: 32px;
+      padding: 2rem;
+    }
+    .contact-info {
+      flex: 1;
+    }
+    .contact-info i {
+      margin-right: 0.8rem;
+      color: #e53e3e;
+    }
+    .contact-info p {
+      margin: 1rem 0;
+    }
+    .contact-form {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+    .contact-form input, .contact-form textarea {
+      background: #1f1f1f;
+      border: none;
+      padding: 1rem;
+      border-radius: 20px;
+      color: white;
+      font-family: inherit;
+    }
+    .contact-form button {
+      background: #e53e3e;
+      border: none;
+      font-weight: bold;
+    }
+    footer {
+      text-align: center;
+      padding: 2rem;
+      background: #030303;
+      border-top: 1px solid #222;
+    }
+    @media (max-width: 768px) {
+      .navbar {
+        flex-direction: column;
+        gap: 1rem;
+      }
+      .hero h1 {
+        font-size: 2.4rem;
+      }
+      .section-title {
+        font-size: 2rem;
+      }
+      .container {
+        padding: 0 1.2rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="container">
+      <div class="navbar">
+        <div class="logo">
+          <h2>IRON <span>FORGE</span> GYM</h2>
+        </div>
+        <ul class="nav-links">
+          <li><a href="#home">Home</a></li>
+          <li><a href="#features">Why Us</a></li>
+          <li><a href="#classes">Classes</a></li>
+          <li><a href="#pricing">Pricing</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+        <a href="#contact" class="btn-outline">Join Now</a>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+      <div class="container">
+        <div class="hero-content">
+          <h1>Forge Your <span style="color:#e53e3e;">Strongest</span> Self</h1>
+          <p>State-of-the-art equipment, elite coaches, and a community that pushes limits. Start your transformation today.</p>
+          <a href="#pricing" class="btn-primary">Get Started <i class="fas fa-arrow-right"></i></a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Features / why us -->
+    <section id="features">
+      <div class="container">
+        <h2 class="section-title">Why <span>Iron Forge</span>?</h2>
+        <div class="features-grid">
+          <div class="feature-card">
+            <i class="fas fa-dumbbell"></i>
+            <h3>Premium Equipment</h3>
+            <p>Latest machines, free weights, functional training zone & cardio deck.</p>
+          </div>
+          <div class="feature-card">
+            <i class="fas fa-chalkboard-user"></i>
+            <h3>Expert Coaches</h3>
+            <p>Certified personal trainers & group instructors for all levels.</p>
+          </div>
+          <div class="feature-card">
+            <i class="fas fa-calendar-week"></i>
+            <h3>Flexible Hours</h3>
+            <p>Open 5 AM – 11 PM daily, including holidays. Train on your schedule.</p>
+          </div>
+          <div class="feature-card">
+            <i class="fas fa-heartbeat"></i>
+            <h3>Community Focus</h3>
+            <p>Challenges, workshops, and supportive environment to keep you motivated.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Classes / Schedule -->
+    <section id="classes" style="background: #0c0c0c;">
+      <div class="container">
+        <h2 class="section-title">Popular <span>Classes</span></h2>
+        <div class="classes-grid">
+          <div class="class-item">
+            <img class="class-img" src="https://images.pexels.com/photos/3757946/pexels-photo-3757946.jpeg?auto=compress&cs=tinysrgb&w=800" alt="HIIT Training">
+            <div class="class-info">
+              <h3>HIIT Burn</h3>
+              <p class="time"><i class="far fa-clock"></i> Mon/Wed/Fri - 6:30 PM</p>
+              <p>High intensity interval training to torch calories & boost endurance.</p>
+            </div>
+          </div>
+          <div class="class-item">
+            <img class="class-img" src="https://images.pexels.com/photos/260447/pexels-photo-260447.jpeg?auto=compress&cs=tinysrgb&w=800" alt="Yoga & Mobility">
+            <div class="class-info">
+              <h3>Power Yoga</h3>
+              <p class="time"><i class="far fa-clock"></i> Tue/Thu - 7:30 AM & 5 PM</p>
+              <p>Improve flexibility, core strength & mental clarity.</p>
+            </div>
+          </div>
+          <div class="class-item">
+            <img class="class-img" src="https://images.pexels.com/photos/791763/pexels-photo-791763.jpeg?auto=compress&cs=tinysrgb&w=800" alt="Strength & Conditioning">
+            <div class="class-info">
+              <h3>Iron Legacy</h3>
+              <p class="time"><i class="far fa-clock"></i> Mon/Wed/Sat - 8 AM</p>
+              <p>Build raw strength with compound lifts & functional training.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Pricing plans -->
+    <section id="pricing">
+      <div class="container">
+        <h2 class="section-title">Membership <span>Plans</span></h2>
+        <div class="pricing-grid">
+          <div class="pricing-card">
+            <h3>Basic</h3>
+            <div class="price">$39<span>/mo</span></div>
+            <ul>
+              <li>✔ Access to gym floor</li>
+              <li>✔ Locker rooms & WiFi</li>
+              <li>✔ Standard hours</li>
+              <li>✖ Group classes</li>
+            </ul>
+            <a href="#contact" class="btn-outline">Select Plan</a>
+          </div>
+          <div class="pricing-card popular">
+            <div class="popular-badge">🔥 MOST POPULAR</div>
+            <h3>Pro Elite</h3>
+            <div class="price">$69<span>/mo</span></div>
+            <ul>
+              <li>✔ Unlimited classes (HIIT/Yoga/Boxing)</li>
+              <li>✔ Guest pass (2x/month)</li>
+              <li>✔ Personal training discount</li>
+              <li>✔ Sauna access</li>
+            </ul>
+            <a href="#contact" class="btn-primary">Join Now</a>
+          </div>
+          <div class="pricing-card">
+            <h3>Annual</h3>
+            <div class="price">$599<span>/year</span></div>
+            <ul>
+              <li>✔ Save 2 months free</li>
+              <li>✔ All Pro Elite benefits</li>
+              <li>✔ Exclusive events</li>
+              <li>✔ Free starter kit</li>
+            </ul>
+            <a href="#contact" class="btn-outline">Best Value</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Trainers (team) - removed Coach Alex Rivera section -->
+    <section style="background: #0c0c0c;">
+      <div class="container">
+        <h2 class="section-title">Meet Your <span>Coaches</span></h2>
+        <div class="trainer-grid">
+          <div class="trainer-card">
+            <img src="https://images.pexels.com/photos/6453653/pexels-photo-6453653.jpeg?auto=compress&cs=tinysrgb&w=400" alt="Coach Jamie">
+            <h3>Jamie Chen</h3>
+            <p style="color:#e53e3e;">HIIT & Functional</p>
+            <p>Certified athletic trainer & nutritionist.</p>
+          </div>
+          <div class="trainer-card">
+            <img src="https://images.pexels.com/photos/4167787/pexels-photo-4167787.jpeg?auto=compress&cs=tinysrgb&w=400" alt="Coach Marcus">
+            <h3>Marcus Stone</h3>
+            <p style="color:#e53e3e;">Yoga & Recovery</p>
+            <p>Mind-body specialist, 500hr RYT.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact & lead generation form -->
+    <section id="contact">
+      <div class="container">
+        <h2 class="section-title">Start Your <span>Journey</span> Today</h2>
+        <div class="contact-flex">
+          <div class="contact-info">
+            <h3>📍 Visit Us</h3>
+            <p><i class="fas fa-map-marker-alt"></i> 1230 Forge Avenue, Downtown Metropolis</p>
+            <p><i class="fas fa-phone-alt"></i> +1 (555) 789-2345</p>
+            <p><i class="fas fa-envelope"></i> join@ironforgegym.com</p>
+            <p><i class="fas fa-clock"></i> Mon - Sun: 5:00 AM – 11:00 PM</p>
+            <div style="margin-top: 1.5rem;">
+              <i class="fab fa-instagram" style="font-size: 1.8rem; margin-right: 1rem;"></i>
+              <i class="fab fa-facebook" style="font-size: 1.8rem; margin-right: 1rem;"></i>
+              <i class="fab fa-tiktok" style="font-size: 1.8rem;"></i>
+            </div>
+          </div>
+          <div class="contact-form">
+            <input type="text" placeholder="Full Name" id="nameInput">
+            <input type="email" placeholder="Email Address" id="emailInput">
+            <input type="tel" placeholder="Phone Number">
+            <textarea rows="3" placeholder="Tell us your fitness goals..."></textarea>
+            <button class="btn-primary" id="submitLeadBtn">Request Free Trial <i class="fas fa-dumbbell"></i></button>
+            <p id="formFeedback" style="font-size:0.85rem; margin-top: 5px; color: #e53e3e;"></p>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container">
+      <p>© 2025 Iron Forge Gym — All rights reserved.</p>
+    </div>
+  </footer>
+
+  <!-- simple javascript for lead interaction & smooth scroll -->
+  <script>
+    // Smooth scroll for navigation links
+    document.querySelectorAll('.nav-links a, .btn-primary[href^="#"], .btn-outline[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function(e) {
+        const targetId = this.getAttribute('href');
+        if (targetId && targetId !== '#') {
+          const targetElement = document.querySelector(targetId);
+          if (targetElement) {
+            e.preventDefault();
+            targetElement.scrollIntoView({
+              behavior: 'smooth',
+              block: 'start'
+            });
+          }
+        }
+      });
+    });
+    
+    // additional for join now button hero
+    const heroBtn = document.querySelector('.hero .btn-primary');
+    if(heroBtn) {
+      heroBtn.addEventListener('click', (e) => {
+        e.preventDefault();
+        const pricingSection = document.querySelector('#pricing');
+        if(pricingSection) pricingSection.scrollIntoView({ behavior: 'smooth' });
+      });
+    }
+
+    // Contact form lead generation simulation (business pitch demonstration)
+    const leadBtn = document.getElementById('submitLeadBtn');
+    const feedbackDiv = document.getElementById('formFeedback');
+    
+    leadBtn.addEventListener('click', (e) => {
+      e.preventDefault();
+      const nameField = document.getElementById('nameInput');
+      const emailField = document.getElementById('emailInput');
+      const nameValue = nameField ? nameField.value.trim() : '';
+      const emailValue = emailField ? emailField.value.trim() : '';
+      
+      if(nameValue === '' || emailValue === '') {
+        feedbackDiv.innerHTML = '⚠️ Please enter your name and email to claim your free trial.';
+        feedbackDiv.style.color = "#e53e3e";
+        return;
+      }
+      if(!emailValue.includes('@') || !emailValue.includes('.')) {
+        feedbackDiv.innerHTML = '📧 Please enter a valid email address.';
+        return;
+      }
+      
+      // Simulate sending lead data to CRM (business value)
+      feedbackDiv.innerHTML = `✅ Thanks ${nameValue}! Our team will contact you within 24h. Welcome to Iron Forge.`;
+      feedbackDiv.style.color = "#4ade80";
+      // clear fields optionally but we keep for demo
+      // In real scenario: lead capture helps gym grow memberships.
+      setTimeout(() => {
+        feedbackDiv.innerHTML = '';
+      }, 5000);
+    });
+
+    // extra interactive hover / just for engagement (optional)
+    console.log("Iron Forge Gym - Live demo ready for client pitch.");
+  </script>
+</body>
+</html>
